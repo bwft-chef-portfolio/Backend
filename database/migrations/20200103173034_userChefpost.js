@@ -33,11 +33,11 @@ exports.up = function(knex) {
 
 
       .createTable('recipe', recipe => {
-        recipe.increments();
+        recipe.increments()
 
         recipe
         .integer('user_id')
-        .unsigend()
+        .unsigned()
         .notNullable()
         .references('id')
         .inTable('users')
@@ -69,5 +69,7 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  
+    return knex.schema
+    .dropTableIfExists('users')
+    .dropTableIfExists('recipe')
 };
