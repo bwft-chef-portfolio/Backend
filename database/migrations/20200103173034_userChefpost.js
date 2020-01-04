@@ -16,7 +16,7 @@ exports.up = function(knex) {
 
         users
         .string('email', 255)
-        .notNullable();
+       
 
         users
         .string('first_name', 255)
