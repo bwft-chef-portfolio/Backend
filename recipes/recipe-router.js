@@ -1,12 +1,12 @@
 const router = require('express').Router();
-
+const authorized = require('../auth/auth-middleware')
 
 const Recipes = require('./recipe-model.js')
 
 
 
 
-router.get('/', (req, res) => {
+router.get('/',  (req, res) => {
     Recipes.getRecipes()
     .then(recipes => {
         res.json(recipes)
@@ -18,17 +18,17 @@ router.get('/', (req, res) => {
 
 
 
+router.post('/', authorized, (req, res) => {
+    const recipeData = req.body
 
-
-
-router.post('/', (req, res) => {
-    const recipe = req.body;
-
-   
+    Recipes.addRecipe(recipeData)
+    .then(newRecipe => {
+        res.status(201).json(newRecipe)
+    })
+    .catch (err => {
+        res.status(500).json({ message: "failed"})
+    })
 })
-
-
-
 
 
   
