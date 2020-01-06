@@ -1,6 +1,8 @@
-Backend API
+Backend API for Chef Portfolio
 
+URL : https://backendchefls.herokuapp.com
 
+example use https://backendchefls.herokuapp.com/api/recipes
 
 
 
@@ -14,3 +16,4 @@ Backend API
 | GET | /api/recipes/:id | getting all recipes from one chef | none | array of all recipes for one chef | yes |
 | POST | /api/recipes | creating a recipe | { user_id: "user_id" (required), type : "Breakfast/Lunch/Dinner/Snack" (required), img_url: "an img url with .jpg at the end of it", title: "a title" (required), description: "description, ingredients: "ingredients" (required), instructions: "instructions" (required) } | id of new recipe | yes |
 | PUT | /api/recipe/:id | updating a recipe | { user_id: "user_id" (required), type : "Breakfast/Lunch/Dinner/Snack" (required), img_url: "an img url with .jpg at the end of it", title: "a title" (required), description: "description, ingredients: "ingredients" (required), instructions: "instructions" (required) } | returns an array with updated information | yes |
+| DELETE | /api/recipe/:id | deleting a recipe | none | deleted | yes |
