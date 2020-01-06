@@ -16,7 +16,12 @@ router.get('/',  (req, res) => {
 
 
 
-
+router.get('/:id', authorized, (req, res) => {
+    Recipes.findId(req.params.id)
+    .then (recipes => {
+        res.json(recipes)
+    })
+})
 
 router.post('/', authorized, (req, res) => {
     const recipeData = req.body
@@ -42,6 +47,18 @@ router.put('/:id', authorized, (req, res) => {
         .catch (err => {
             res.status(500).json({ message: "failed, make sure you have all the needed fields"})
         })
+})
+
+router.delete('/:id', authorized, (req,res)=> {
+    const id = req.params.id
+
+    Recipes.removeRecipe(id)
+    .then(recipe => {
+        res.status(200).json({ message: "deleted"})
+    })
+    .catch(err => {
+        res.status(500).json({ message: "failed to delete"})
+    })
 })
   
 module.exports = router;

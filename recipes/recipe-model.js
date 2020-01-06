@@ -8,7 +8,8 @@ module.exports = {
     getRecipes,
     addRecipe,
     updateRecipe,
-    findId
+    findId,
+    removeRecipe
    
 }
 
@@ -22,7 +23,7 @@ function getRecipes() {
 function findId(id) {
     return db('recipe')
         .where({user_id: id})
-        .first()
+        
 }
 
 function addRecipe(recipe) {
@@ -41,3 +42,8 @@ function updateRecipe(recipe) {
         })
 }
 
+function removeRecipe(recipe) {
+    return db('recipe')
+        .where('id',recipe)
+        .del();
+}
