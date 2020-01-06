@@ -21,6 +21,7 @@ router.get('/:id', authorized, (req, res) => {
     .then (recipes => {
         res.json(recipes)
     })
+    .catch(err => res.send(err))
 })
 
 router.post('/', authorized, (req, res) => {
