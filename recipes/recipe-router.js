@@ -11,7 +11,9 @@ router.get('/',  (req, res) => {
     .then(recipes => {
         res.json(recipes)
     })
-    res.status(500).json({ message: "failed getting data"})
+    .catch (err => { 
+        res.status(500).json({ message: "failed getting data"})
+        })
 })
 
 
@@ -21,7 +23,9 @@ router.get('/:id', authorized, (req, res) => {
     .then (recipes => {
         res.json(recipes)
     })
+    .catch (err => { 
     res.status(500).json({ message: "failed getting data make sure you have the right ID"})
+    })
 })
 
 router.post('/', authorized, (req, res) => {
