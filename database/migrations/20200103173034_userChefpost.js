@@ -44,6 +44,9 @@ exports.up = function(knex) {
         .onDelete('CASCADE')
         .onUpdate('CASCADE')
 
+        recipe 
+        .string('type', 255)
+        .notNullable()
 
         recipe
         .string('img_url', 350)
