@@ -11,7 +11,8 @@ const userRouter = require('../users/user-router')
 
 const server = express();
 
-
+server.use(helmet());
+server.use(cors());
 server.use(express.json());
 
 
