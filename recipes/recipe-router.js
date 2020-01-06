@@ -11,7 +11,7 @@ router.get('/',  (req, res) => {
     .then(recipes => {
         res.json(recipes)
     })
-    .catch(err => res.send(err))
+    res.status(500).json({ message: "failed getting data"})
 })
 
 
@@ -21,7 +21,7 @@ router.get('/:id', authorized, (req, res) => {
     .then (recipes => {
         res.json(recipes)
     })
-    .catch(err => res.send(err))
+    res.status(500).json({ message: "failed getting data make sure you have the right ID"})
 })
 
 router.post('/', authorized, (req, res) => {
@@ -46,7 +46,7 @@ router.put('/:id', authorized, (req, res) => {
             res.status(201).json(recipeData)
         })
         .catch (err => {
-            res.status(500).json({ message: "failed, make sure you have all the needed fields"})
+            res.status(500).json({ message: "failed, make sure you have all the needed fields and the correct ID"})
         })
 })
 
@@ -58,7 +58,7 @@ router.delete('/:id', authorized, (req,res)=> {
         res.status(200).json({ message: "deleted"})
     })
     .catch(err => {
-        res.status(500).json({ message: "failed to delete"})
+        res.status(500).json({ message: "failed to delete, Make sure you have the right ID"})
     })
 })
   

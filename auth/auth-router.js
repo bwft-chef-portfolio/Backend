@@ -19,7 +19,7 @@ router.post('/register', (req, res) => {
             
         })
         .catch(error => {
-            res.status(500).json(error)
+          res.status(500).json({ message: "failed creating account. Make sure to have all the required fields and that the username and email is unique "})
         })
 
 })
@@ -46,7 +46,7 @@ router.post('/login', (req, res) => {
       }
     })
     .catch(error => {
-      res.status(500).json(error);
+      res.status(500).json({ message: "failed finding account with that username "})
     });
 
 });
