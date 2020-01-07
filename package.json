@@ -4,9 +4,12 @@
   "description": "Backend API",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cross-env DB_ENV=testing jest --watch",
     "server": "nodemon index.js",
     "start": "node index.js"
+  },
+  "jest" : {
+      "testEnvironment": "node"
   },
   "repository": {
     "type": "git",

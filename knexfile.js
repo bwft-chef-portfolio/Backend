@@ -12,7 +12,7 @@ module.exports = {
   testing: {
     client: "sqlite3",
     connection: {
-      filename: "./database/chiefTest.db3",
+      filename: "./database/chief.db3",
     },
     useNullAsDefault: true,
     pool: {
