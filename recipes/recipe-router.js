@@ -28,6 +28,18 @@ router.get('/:id', authorized, (req, res) => {
     })
 })
 
+
+router.get('/:id/recipe', authorized, (req, res) => {
+    Recipes.getRecipe(req.params.id)
+    .then (recipes => {
+        res.json(recipes)
+    })
+    .catch (err => { 
+    res.status(500).json({ message: "failed getting data make sure you have the right ID"})
+    })
+})
+
+
 router.post('/', authorized, (req, res) => {
     const recipeData = req.body
 
