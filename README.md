@@ -18,8 +18,4 @@ example use https://backendchefls.herokuapp.com/api/recipes
 | POST | /api/recipes | creating a recipe | { user_id: "user_id" (required), type : "Breakfast/Lunch/Dinner/Snack" (required), img_url: "an img url with .jpg at the end of it", title: "a title" (required), description: "description, ingredients: "ingredients" (required), instructions: "instructions" (required) } | id of new recipe | yes |
 | PUT | /api/recipes/:id | updating a recipe | { user_id: "user_id" (required), type : "Breakfast/Lunch/Dinner/Snack" (required), img_url: "an img url with .jpg at the end of it", title: "a title" (required), description: "description, ingredients: "ingredients" (required), instructions: "instructions" (required) } | returns an array with updated information | yes |
 | DELETE | /api/recipes/:id | deleting a recipe | none | deleted | yes |
-
-Filters 
-|Request|Endpoint|Action|Expected Input|Output|Token Required?|
-|----------|----------|----------|----------|----------|----------|
 | GET | /api/recipes/type/:type | filtering by type | none | array of all recipes of that type | no |
