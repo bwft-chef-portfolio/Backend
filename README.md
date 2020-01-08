@@ -19,3 +19,7 @@ example use https://backendchefls.herokuapp.com/api/recipes
 | PUT | /api/recipes/:id | updating a recipe | { user_id: "user_id" (required), type : "Breakfast/Lunch/Dinner/Snack" (required), img_url: "an img url with .jpg at the end of it", title: "a title" (required), description: "description, ingredients: "ingredients" (required), instructions: "instructions" (required) } | returns an object with updated information | yes |
 | DELETE | /api/recipes/:id | deleting a recipe | none | deleted | yes |
 | GET | /api/recipes/type/:type | filtering by type | none | array of all recipes of that type | no |
+| GET | /api/recipes/username/:username | filtering by username | none | array of all recipes of that username | no |
+| GET | /api/recipes/title/:title | filtering by title | none | array of all recipes of that title | no |
+| GET | /api/recipes/ingredients/:ingredients | filtering by ingredients | none | array of all recipes of that ingredient | no |
+
