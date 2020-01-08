@@ -39,6 +39,16 @@ router.get('/:id/recipe', authorized, (req, res) => {
     })
 })
 
+router.get("/type/:type", (req, res) => {
+    Recipes.byMealType(req.params)
+        .then(recipe => {
+            res.status(200).json(recipe)
+        })
+        .catch (err => {
+            res.status(500).json({ message: "recipe type not found"})
+        })
+})
+
 
 router.post('/', authorized, (req, res) => {
     const recipeData = req.body

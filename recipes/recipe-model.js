@@ -10,7 +10,8 @@ module.exports = {
     addRecipe,
     updateRecipe,
     findId,
-    removeRecipe
+    removeRecipe,
+    byMealType
    
 }
 
@@ -52,4 +53,8 @@ function removeRecipe(recipe) {
     return db('recipe')
         .where('id',recipe)
         .del();
+}
+function byMealType(filter){
+    return db('recipe')
+        .where("type", "like", `%${filter.type}%`)
 }

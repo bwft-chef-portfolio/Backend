@@ -16,6 +16,9 @@ router.get('/:id', authorized, (req, res) => {
 })
 
 
+
+
+
 router.put('/:id', authorized, (req, res) => {
     const userData = { ...req.body, id: req.params.id}
    
