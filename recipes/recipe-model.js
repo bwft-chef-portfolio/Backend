@@ -11,7 +11,8 @@ module.exports = {
     updateRecipe,
     findId,
     removeRecipe,
-    byMealType
+    byMealType,
+    byUsername
    
 }
 
@@ -25,6 +26,7 @@ function getRecipes() {
 }
 function getRecipe(id){
     return db('recipe').where({id :id}).first()
+    
 }
 
 function findId(id) {
@@ -57,4 +59,12 @@ function removeRecipe(recipe) {
 function byMealType(filter){
     return db('recipe')
         .where("type", "like", `%${filter.type}%`)
+        .select('recipe.id','users.username','users.email','users.first_name','users.last_name','users.phone','users.location','recipe.type','recipe.img_url','recipe.title','recipe.description','recipe.ingredients','recipe.instructions')
+        .join('users', 'recipe.user_id', 'users.id')
+}
+function byUsername(filter){
+    return db('recipe')
+        .where("users.username", "like", `%${filter.username}%`)
+        .select('recipe.id','users.username','users.email','users.first_name','users.last_name','users.phone','users.location','recipe.type','recipe.img_url','recipe.title','recipe.description','recipe.ingredients','recipe.instructions')
+        .join('users', 'recipe.user_id', 'users.id')
 }
