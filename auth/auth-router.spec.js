@@ -25,7 +25,7 @@ describe('server', function () {
             })
         })
         it(' should return 201 for account creation', function (){
-            const login = { username: "test4545", password: "test4455" }
+            const login = { username: "test32321", password: "test32321" }
             console.log(login)
             return request(server)
             .post('/api/auth/register')
